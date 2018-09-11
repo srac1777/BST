@@ -1,5 +1,6 @@
 require 'rspec'
 require 'binary_search_tree'
+require 'byebug'
 
 describe BinarySearchTree do
   let(:bst) { BinarySearchTree.new }
@@ -103,6 +104,7 @@ describe BinarySearchTree do
     context 'if target node has two children' do
       it 'replaces target node with maximum of target\'s left tree' do
         parent_of_three = prefilled_bst.root
+        # debugger
         prefilled_bst.delete(3)
 
         expect(parent_of_three.left.value).to eq(2)
@@ -113,7 +115,7 @@ describe BinarySearchTree do
           parent_of_two = prefilled_bst.root.left.left
           prefilled_bst.delete(3)
           # the above action promotes 2 to replace 3
-
+          # debugger
           expect(parent_of_two.right.value).to eq(1.5)
         end
       end
